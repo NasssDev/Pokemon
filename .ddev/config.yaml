@@ -11,7 +11,15 @@ database:
     version: "10.11"
 use_dns_when_possible: true
 composer_version: "2"
-web_environment: []
+web_environment: [
+    "DB_HOST=db",
+    "DB_USER=root",
+    "DB_PASSWORD=root",
+    "DB_NAME=db",
+    "DB_DRIVER=mysql",
+    "APP_ENV=local",
+    "APP_DEBUG=true",
+]
 corepack_enable: false
 
 # Key features of DDEV's config.yaml:

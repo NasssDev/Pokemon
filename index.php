@@ -1,9 +1,8 @@
 <?php
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "pokemon_db";
-
+$servername = getenv('DB_HOST');
+$username = getenv('DB_USER');
+$password = getenv('DB_PASSWORD');
+$dbname = getenv('DB_NAME');
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
