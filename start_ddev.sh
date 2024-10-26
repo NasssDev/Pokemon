@@ -38,3 +38,6 @@ if [ $? -ne 0 ]; then
 fi
 
 echo "ddev setup and database import completed successfully!"
+
+ddev npm install
+ddev npm run dev
