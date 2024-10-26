@@ -1,0 +1,13 @@
+{
+  "name": "pokemon/ynov",
+  "description": "",
+  "autoload": {
+    "psr-4": {
+      "Els\\": "src/"
+    }
+  },
+  "require": {
+    "ext-pdo": "*",
+    "guzzlehttp/guzzle": "^7.8"
+  }
+}

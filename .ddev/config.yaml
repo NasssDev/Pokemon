@@ -1,4 +1,4 @@
-name: pokemons
+name: pokemon
 type: php
 docroot: ""
 php_version: "8.2"
@@ -11,16 +11,13 @@ database:
     version: "10.11"
 use_dns_when_possible: true
 composer_version: "2"
-web_environment: [
-    "DB_HOST=db",
-    "DB_USER=root",
-    "DB_PASSWORD=root",
-    "DB_NAME=db",
-    "DB_DRIVER=mysql",
-    "APP_ENV=local",
-    "APP_DEBUG=true",
-]
+web_environment: []
 corepack_enable: false
+web_extra_exposed_ports:
+  - name: vite
+    container_port: 5173
+    http_port: 5172
+    https_port: 5173
 
 # Key features of DDEV's config.yaml:
 
