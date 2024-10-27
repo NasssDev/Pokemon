@@ -3,8 +3,9 @@ export default {
   content: [
     "./index.html",
     "./index.php",
-    "./src/**/*.{js,ts,jsx,tsx}",
-    "./assets/**/*.{js,ts,jsx,tsx}"
+    "./views/**/*.php",
+    "./src/**/*.{js,ts,jsx,tsx,php}",
+    "./src/assets/**/*.{js,ts,jsx,tsx,php}"
   ],
   theme: {
     extend: {},

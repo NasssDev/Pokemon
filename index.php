@@ -9,13 +9,12 @@ use Els\Controllers\viewControllers\createPage;
 
 $lang = "fr";
 $pokemons = [];
-
 try {
    
     $conn = new DatabaseFactory(
         getenv('DB_HOST'),
         getenv('DB_PORT'),
-        getenv('DB_DATABASE'),
+        getenv('DB_NAME'),
         getenv('DB_USER'),
         getenv('DB_PASSWORD')
     );
@@ -29,8 +28,6 @@ try {
  
   echo "Database connection error: " . $errorMessage;
 }
-
-
 
 $mainController = new createPage();
 

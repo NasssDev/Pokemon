@@ -9,26 +9,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && realpath(__FILE__) == realpath($_SERV
     <section id="qui-sommes-nous" class="text-cards-horizon team-section">
         <div class="container">
             <div class="row mainRow">
-                <div class="col-12 text-cards-horizon__textWrapper">
+                <div class="col-12">
                     <div class="pre-title pre-title--centered">Notre équipe de pokemons</div>
-                    <div class="title title--centered">Des pokemons prêt à servir</div>
-                    <p class="els-text-lg els-text-centered">Depuis toujours, ils sont armés pour le jeu.</p>
+                    <div class="title els-text-lg title--centered">Des pokemons prêt à servir de guide</div>
+                    <p class="els-text-lg text-center">Découvrez les tréfonds du MVC grâce à eux!</p>
                 </div>
                 <div class="col-12 text-cards-horizon__cardsWrapper">
                     <?php
                     if(!empty($data))
-                        foreach($data["pokemons"] as $member) { ?>
-
+                        foreach($data["pokemons"] as $pokemon) { ?>
                             <div data-typebtn="team-btn" class="box modal-open-btn"
-                                 data-title="<?php echo $member->getName() ?>">
+                                 data-title="<?php echo $pokemon->getName() ?>">
                                 <div class="top-bar"></div>
                                 <div class="content">
-                                    <img src="<?php echo '/assets/img/pokemons/pikachu.png' ?>" alt="<?php echo $member->getName() ?? '' ?>">
-                                    <p><?php echo $member->getName() ?? "" ?></p>
-                                    <?php echo $member->getType() ?? "" ?>
+                                    <div class="image-wrapper"><img src="<?php echo 'src/assets/img/pokemons/' . $pokemon->getImage() . '.png' ?? 'pikachu' . '.png'; ?>" alt="<?php echo $pokemonName ?? "pikachu"; ?>"></div>
+                                    <p><?php echo $pokemon->getName() ?? "" ?></p>
+                                  
                                 </div>
                                 <div class="box-footer">
-                                    <p><?php echo "Présentation" ?></p>
+                                    <p><?php echo $pokemon->getType() ?? "" ?></p>
                                 </div>
                             </div>
 

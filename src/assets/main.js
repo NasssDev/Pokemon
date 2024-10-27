@@ -1,4 +1,3 @@
-import './style.css'
 import './scss/style.scss';
+import './style.css'
 
-console.log('hello vite here!');

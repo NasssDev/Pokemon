@@ -3,7 +3,16 @@
 if ($_SERVER['REQUEST_METHOD'] == 'GET' && realpath(__FILE__) == realpath($_SERVER['SCRIPT_FILENAME'])) {
 header('HTTP/1.0 403 Forbidden', TRUE, 403);
 die();
-} ?>
+} 
+
+$hostname = $_SERVER['DDEV_HOSTNAME'] 
+    ?? getEnv('HOST_URL')
+    ?? $_SERVER['SERVER_NAME'] 
+    ?? $_SERVER['HTTP_HOST'] 
+    ?? 'localhost';
+    $viteClient = "https://{$hostname}:5173/@vite/client";
+    $viteEntry = "https://{$hostname}:5173/src/assets/main.js";
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -23,8 +32,7 @@ die();
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="assets/build/style.css" />
+  
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
           crossorigin=""/>
@@ -32,17 +40,15 @@ die();
             integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
             crossorigin=""></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
-    <script type="module" src="https://<?php echo  $_SERVER['DDEV_HOSTNAME']; ?>:5173/@vite/client"></script>
-    <script type="module" src="https://<?php echo  $_SERVER['DDEV_HOSTNAME']; ?>:5173/src/assets/main.js"></script>
+    <?php if(isset($viteClient) && isset($viteEntry) && !empty($viteClient) && !empty($viteEntry)) { ?>
+      <script type="module" src="<?php echo $viteClient ?>" ></script>
+      <script type="module" src="<?php echo $viteEntry ?>" ></script>
+    <?php } ?>
+    
 </head>
 <body class="<?php echo $bodyId ?? "no-page" ?>">
 <?php require_once(__DIR__ . '/partials/header.php'); ?>
-<?= $page_content ?? "" ?>
+<?= $page_content ?? "Aucun contenu de page trouvé" ?>
 <?php require_once(__DIR__ . '/partials/footer.php'); ?>
-
-<script src="assets/lib/jquery/jquery-3.7.1.min.js"></script>
-<script src="assets/build/script.umd.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
 </body>
 </html>

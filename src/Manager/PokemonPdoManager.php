@@ -14,7 +14,7 @@ class PokemonPdoManager extends pdoBaseManager
      */
     public function getPokemons(): array
     {
-        $query = $this->pdo->query("SELECT id, name, type FROM pokemons");
+        $query = $this->pdo->query("SELECT id, image, name, type FROM pokemons");
         $pokemons = [];
 
         while ($data = $query->fetch(\PDO::FETCH_ASSOC)) {

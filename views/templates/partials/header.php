@@ -11,7 +11,7 @@ $siteUrl = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HT
         <div class="row align-items-center mainRow g-lg-0">
             <div class="col-auto logo">
                 <a href="<?php echo $siteUrl ?>/#homepage" data-hash="#homepage">
-                    <img src="../../../assets/img/logo.svg" alt="Logo ELS-TOGO">
+                    <img src="../../../src/assets/img/logo.svg" alt="Logo ELS-TOGO">
                 </a>
             </div>
             <nav class="col nav">
@@ -19,12 +19,11 @@ $siteUrl = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HT
                     <div class="col-auto me-lg-3">
                         <ul class="header-menu">
                             <li class="menu__nav-item"><a data-hash="#qui-sommes-nous" href="<?php echo $siteUrl ?>/#qui-sommes-nous">Qui sommes-nous ?</a></li>
-                            <li class="menu__nav-item"><a data-hash="#mission" href="<?php echo $siteUrl ?>/#mission">Vos cartes</a></li>
-                            <li class="menu__nav-item"><a data-hash="#nos-projets" href="<?php echo $siteUrl ?>/#nos-projets">Achats</a></li>
+                            <li class="menu__nav-item"><a data-hash="#nos-projets" href="<?php echo $siteUrl ?>/#nos-projets">Docs</a></li>
                         </ul>
                     </div>
                     <div class="col-auto ms-lg-5">
-                        <a data-hash="#contact" href="<?php echo $siteUrl ?>/#contact" class="button button--secondary">Nous contacter</a>
+                        <a data-hash="#contact" href="<?php echo $siteUrl ?>/#contact" class="py-2 px-3 bg-purple-600 hover:bg-red-500 rounded els-text-lg text-white font-bold">Nous contacter</a>
                     </div>
                 </div>
             </nav>

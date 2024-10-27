@@ -4,6 +4,7 @@ namespace Els\Entity;
 class Pokemons extends BaseEntity
 {
     private int | null $id = 0;
+    private string $image = "";
     private string $name = "";
     private string $type = "";
 
@@ -22,6 +23,24 @@ class Pokemons extends BaseEntity
     public function setId(int | null $id): Pokemons
     {
         $this->id = $id;
+        return $this;
+    }
+
+       /**
+     * @return string
+     */
+    public function getImage(): string
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param string $name
+     * @return Pokemons
+     */
+    public function setImage(string $image): Pokemons
+    {
+        $this->image = $image;
         return $this;
     }
 

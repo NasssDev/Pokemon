@@ -1,0 +1,1 @@
+ddev exec npx tailwindcss -i ./src/assets/style.css -o ./src/assets/output.css --watch

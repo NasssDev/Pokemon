@@ -14,6 +14,7 @@ composer_version: "2"
 web_environment: [
   "DB_HOST=db",
   "DB_USER=root",
+  "DB_PORT=3306",
   "DB_PASSWORD=root",
   "DB_NAME=db",
   "DB_DRIVER=mysql",
