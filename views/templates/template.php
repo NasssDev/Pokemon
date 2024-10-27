@@ -12,6 +12,43 @@ $hostname = $_SERVER['DDEV_HOSTNAME']
     ?? 'localhost';
     $viteClient = "https://{$hostname}:5173/@vite/client";
     $viteEntry = "https://{$hostname}:5173/src/assets/main.js";
+
+  function viteAsset($entry) {
+      // Path to the manifest file
+      $manifestPath = __DIR__ . '/dist/manifest.json';
+
+      // Check if manifest file exists
+      if (!file_exists($manifestPath)) {
+          return ''; // Return an empty string if manifest is missing
+      }
+
+      // Decode the manifest file
+      $manifest = json_decode(file_get_contents($manifestPath), true);
+
+      // Check if entry exists in the manifest
+      if (!isset($manifest[$entry])) {
+          return ''; // Return an empty string if entry is not found
+      }
+
+      // Build the URLs for assets based on the manifest data
+      $assetUrls = [];
+
+      // If entry has a main JS file, add it
+      if (isset($manifest[$entry]['file'])) {
+          $assetUrls[] = '<script type="module" src="/dist/' . $manifest[$entry]['file'] . '"></script>';
+      }
+
+      // If entry has CSS files, add them
+      if (isset($manifest[$entry]['css'])) {
+          foreach ($manifest[$entry]['css'] as $cssFile) {
+              $assetUrls[] = '<link rel="stylesheet" href="/dist/' . $cssFile . '">';
+          }
+      }
+
+      // Join asset URLs into a single string to return
+      return implode("\n", $assetUrls);
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +69,7 @@ $hostname = $_SERVER['DDEV_HOSTNAME']
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  
+    
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
           crossorigin=""/>
@@ -44,6 +81,7 @@ $hostname = $_SERVER['DDEV_HOSTNAME']
       <script type="module" src="<?php echo $viteClient ?>" ></script>
       <script type="module" src="<?php echo $viteEntry ?>" ></script>
     <?php } ?>
+    <?php echo viteAsset('src/assets/main.js'); ?>
     
 </head>
 <body class="<?php echo $bodyId ?? "no-page" ?>">

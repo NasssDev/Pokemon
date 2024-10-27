@@ -52,6 +52,8 @@ RUN npm install
 #Run the Webpack build (modify the command according to your needs)
 RUN npm run build
 
+RUN npx tailwindcss -i ./src/assets/style.css -o ./src/assets/output.css --watch
+
 RUN composer dump-autoload
 
 # Make port 80 available to the world outside this container
