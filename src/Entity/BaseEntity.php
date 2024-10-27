@@ -13,19 +13,4 @@ abstract class BaseEntity
     {
         $this->hydrate($data);
     }
-
-    protected function createParagraphs(string | array $contents, $separator="<br>"): string {
-
-        if(is_array($contents)) {
-            $string = "";
-            foreach($contents as $item) {
-                $string .= $item . $separator;
-            }
-            return $string;
-        } elseif(is_string($contents)) {
-            return $contents;
-        } else {
-            return "";
-        }
-    }
 }

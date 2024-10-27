@@ -6,7 +6,6 @@ require_once 'vendor/autoload.php';
 use Els\Factory\DatabaseFactory;
 use Els\Manager\PokemonPdoManager;
 use Els\Controllers\viewControllers\createPage;
-
 $lang = "fr";
 $pokemons = [];
 try {
@@ -48,12 +47,12 @@ try {
                 "bodyId" => 'route-home',
                 "page_css_id" => 'page-home',
                 "meta" => [
-                    "page_title" => 'Association ELS-Togo',
-                    "page_description" => 'Site web de els-Togo',
+                    "page_title" => 'Pokemon MVC',
+                    "page_description" => 'Refactoring to fit MVC architecture',
                 ],
                 "view" => 'views/home.view.php',
                 "template" => "views/templates/template.php",
-                "siteUrl" => $siteUrl || "localhost:7000",
+                "siteUrl" => $siteUrl || "localhost:8080",
                 "data" => [
                   "pokemons" => $pokemons
                 ]
@@ -66,8 +65,8 @@ try {
                 "bodyId" => $page,
                 "page_css_id" => 'page-legal',
                 "meta" => [
-                    "page_title" => 'Mentions légales - Association ELS-Togo',
-                    "page_description" => 'Mentions légales du site web de els-Togo',
+                    "page_title" => 'Mentions légales - Pokemon MVC',
+                    "page_description" => 'Mentions légales du site web Pokemon MVC',
                 ],
                 "view" => 'views/legal.view.php',
                 "template" => "views/templates/template.php",
@@ -80,8 +79,8 @@ try {
                 "bodyId" => $page,
                 "page_css_id" => 'page-credit',
                 "meta" => [
-                    "page_title" => 'Crédits - Association ELS-Togo',
-                    "page_description" => 'Crédits du site web de els-Togo',
+                    "page_title" => 'Crédits - Pokemon MVC',
+                    "page_description" => 'Crédits du site web Pokemon MVC',
                 ],
                 "view" => 'views/credit.view.php',
                 "template" => "views/templates/template.php",
@@ -98,8 +97,8 @@ try {
         "bodyId" => 'route-error',
         "page_css_id" => 'page-error',
         "meta" => [
-            "page_title" => "Erreur 404 - Els Togo",
-            "page_description" => 'Els-Togo - erreur 404',
+            "page_title" => "Erreur 404 - Pokemon MVC",
+            "page_description" => 'Pokemon MVC - erreur 404',
         ],
         "view" => 'views/error.view.php',
         "template" => "views/templates/template.php",
@@ -114,31 +113,4 @@ try {
 
 
 
-
-// $servername = getenv('DB_HOST');
-// $username = getenv('DB_USER');
-// $password = getenv('DB_PASSWORD');
-// $dbname = getenv('DB_NAME');
-// // Create connection
-// $conn = new mysqli($servername, $username, $password, $dbname);
-
-// // Check connection
-// if ($conn->connect_error) {
-//   die("Connection failed: " . $conn->connect_error);
-// }
-
-// // Fetch data from database
-// $sql = "SELECT id, name, type FROM pokemons";
-// $result = $conn->query($sql);
-
-// if ($result->num_rows > 0) {
-//   // Output data of each row
-//   while($row = $result->fetch_assoc()) {
-//     echo "<h2>" . $row["name"]. "</h2><p>" . $row["type"] . "</p>";
-//   }
-// } else {
-//   echo "0 results";
-// }
-
-// $conn->close();
 
