@@ -62,5 +62,6 @@ EXPOSE 80
 # Define environment variable
 ENV URL "https://pokemon-mvc.onrender.com"
 ENV BASE_SITE_URL "https://pokemon-mvc.onrender.com"
+ENV HOST_URL="pokemon-mvc.onrender.com"
 # Run apache when the container launches
 CMD ["apache2-foreground"]
