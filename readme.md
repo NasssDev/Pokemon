@@ -78,15 +78,11 @@ Limtes:
 - Le projet est configuré avec vite js, npm, composer avec l'autoload <br>
 `composer install` - `composer dump-autoload` | `npm install` - `npm run dev`
 - Le point d'entrée du js et du css (tailwind) se trouve dans `src/assets/main.js`
-- Attention : pour utiliser vite js, vous devez bien ajouter dans un `.env` à la racine:<br> 
-```
-HOST_URL="https://-votre-url-de-base" 
-(ex: https://local.pokemon.com ou http://localhost)
-````
+- Attention : pour utiliser vite js, vous devez appeler les styles or ce n'est pas configurer d'avance. Vous devez donc créer une configuration pour l'appel des styles vous-mêmes.
+- Ces appels du style se font via `views/templates/template.php` : vous devez y appeler vos feuilles de styles et les scripts js au final. Vite génère un manifeste qui permet de faire correspondre les styles : pour autant si vous ne savez pas utiliser vite avec php, le plus simple est de vous en écarter et de générer votre propre feuille de style en utilisant celle initialement généré par vite js lorsque l'on fait `npm run build`. N'oubliez pas aussi la partie tailwindcss que vous pouvez déclencher avec notre script shell à la racine du projet.
 
 > Si il y a un blocage, retrouvez l'appel des scripts de vite dans `views/templates/template.php` dans le `<head>` avec les variables `$viteEntry` et `$viteClient` => **là vous pouvez y ajouter votre propre chemin d'accés de vite js**
 
 NB: Si besoin vous pouvez supprimer ddev en cas de conflits (ils ne devraient pas y en avoir si vous ne le démarrez pas)<br> 
 => à la racine du projet en bash: `rm -r .ddev`
 
-Aussi vous pouvez configurer votre propre dockerfile / docker compose. Mais si vous voulez, nous avons préparer ddev afin de faciliter ces tâche, il faut juste l'installer en plus de docker que vous avez peut-être déjà.
