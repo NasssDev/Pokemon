@@ -71,6 +71,7 @@ docker compose up -d --build
 Limtes:
 - Nous n'avons pas intégrer vite js via hot reloading ni même les appels de styles dynamiques avec cette configuration
 - Vous devez donc créer vous-même ce setup ou générer un build du style et l'appeler dans `views/templates/template.php`.
+- Vous devez aussi configurer vous-même un service pour la BDD ou un accés à une BDD distante. Nous en avons une : demandez-nous les accés.
 
 ## Si vous utilisez votre configuration personnelle locale (avec ou sans docker) :
 - Le dump de la bdd mysql est dans `database/db.sql`
