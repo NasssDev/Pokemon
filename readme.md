@@ -79,4 +79,4 @@ HOST_URL="https://-votre-url-de-base"
 NB: Si besoin vous pouvez supprimer ddev en cas de conflits (ils ne devraient pas y en avoir si vous ne le démarrez pas)<br> 
 => à la racine du projet en bash: `rm -r .ddev`
 
-Ainsi vous pouvez configurer votre propre dockerfile / docker compose. Mais si vous voulez, nous avons préparer ddev afin de faciliter ces tâche, il faut juste l'installer en plus de docker que vous avez peut-être déjà.
+Aussi vous pouvez configurer votre propre dockerfile / docker compose. Mais si vous voulez, nous avons préparer ddev afin de faciliter ces tâche, il faut juste l'installer en plus de docker que vous avez peut-être déjà.
