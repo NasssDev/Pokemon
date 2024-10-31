@@ -63,6 +63,15 @@ Pour installer les dépendances si elles ne le sont pas déjà :
 
 En cas de besoin de (re)générer l'autoload (php): `ddev composer dump-autoload`
 
+## Si vous utilisez notre configuration avec docker :
+```
+docker compose up -d --build
+```
+
+Limtes:
+- Nous n'avons pas intégrer vite js via hot reloading ni même les appels de styles dynamiques avec cette configuration
+- Vous devez donc créer vous-même ce setup ou générer un build du style et l'appeler dans `views/templates/template.php`.
+
 ## Si vous utilisez votre configuration personnelle locale (avec ou sans docker) :
 - Le dump de la bdd mysql est dans `database/db.sql`
 - Le projet est configuré avec vite js, npm, composer avec l'autoload <br>
