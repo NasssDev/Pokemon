@@ -81,7 +81,7 @@ Limtes:
 - Attention : pour utiliser vite js, vous devez appeler les styles or ce n'est pas configurer d'avance. Vous devez donc créer une configuration pour l'appel des styles vous-mêmes.
 - Ces appels du style se font via `views/templates/template.php` : vous devez y appeler vos feuilles de styles et les scripts js au final. Vite génère un manifeste qui permet de faire correspondre les styles : pour autant si vous ne savez pas utiliser vite avec php, le plus simple est de vous en écarter et de générer votre propre feuille de style en utilisant celle initialement généré par vite js lorsque l'on fait `npm run build`. N'oubliez pas aussi la partie tailwindcss que vous pouvez déclencher avec notre script shell à la racine du projet.
 
-> Si il y a un blocage, retrouvez l'appel des scripts de vite dans `views/templates/template.php` dans le `<head>` avec les variables `$viteEntry` et `$viteClient` => **là vous pouvez y ajouter votre propre chemin d'accés de vite js**
+> Si vous vous y connaissez avec la configuration de vite js + php, retrouvez l'appel des scripts de vite dans `views/templates/template.php` dans le `<head>` avec les variables `$viteEntry` et `$viteClient` => **là vous pouvez y ajouter votre propre chemin d'accés de vite js mais il existe d'autres méthodes plus adapté pour la production**
 
 NB: Si besoin vous pouvez supprimer ddev en cas de conflits (ils ne devraient pas y en avoir si vous ne le démarrez pas)<br> 
 => à la racine du projet en bash: `rm -r .ddev`
