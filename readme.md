@@ -7,6 +7,8 @@ Voici les instructions d'installation du projet localement.
 - Votre propre outil comme MAMP, XAMPP, Laragon ... 
 - Votre propre configuration docker
 
+Dans les deux derniers cas la génération des styles et/ou de l'accés BDD n'est pas prêt à l'emploi et peut vous prendre du temps.
+
 ## Installation avec ddev (recommandé)
 
 ### Installer ddev et docker
