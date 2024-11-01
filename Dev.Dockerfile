@@ -1,3 +1,4 @@
+# syntax = docker/dockerfile:1.2
 FROM php:8.1.2-apache
 
 RUN docker-php-ext-install mysqli pdo pdo_mysql \
@@ -60,9 +61,9 @@ RUN composer dump-autoload
 EXPOSE 80
 
 # Define environment variable
-ENV URL "https://pokemon-mvc.onrender.com"
-ENV BASE_SITE_URL "https://pokemon-mvc.onrender.com"
-ENV HOST_URL="pokemon-mvc.onrender.com"
+ENV URL "http://localhost:8000"
+ENV BASE_SITE_URL "http://localhost:8000"
+ENV HOST_URL="localhost"
 
 # Run apache when the container launches
 CMD ["apache2-foreground"]

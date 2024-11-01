@@ -1,0 +1,15 @@
+services:
+  php-dev:
+    build:
+      context: .
+      dockerfile: Dev.Dockerfile
+    ports:
+      - '8000:80'
+      - '4430:443'
+    env_file:
+      - .env
+    restart: always
+    volumes:
+      - ./:/var/www/html
+    tty: true
+    container_name: pokemon_web
