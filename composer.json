@@ -1,0 +1,15 @@
+{
+    "name": "nasssdev/pokemon_mvc",
+    "autoload": {
+        "psr-4": {
+            "Nasssdev\\PokemonMvc\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Nasssdev",
+            "email": "aissaoui_nassim@outlook.fr"
+        }
+    ],
+    "require": {}
+}

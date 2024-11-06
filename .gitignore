@@ -1,2 +1,6 @@
 .ddev
 /.ddev
+nginx/
+snippets/
+.env
+/vendor/

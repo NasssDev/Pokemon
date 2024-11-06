@@ -1,28 +1,15 @@
 <?php
-$servername = getenv('DB_HOST');
-$username = getenv('DB_USER');
-$password = getenv('DB_PASSWORD');
-$dbname = getenv('DB_NAME');
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+require 'vendor/autoload.php';
 
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+require_once 'src/Factories/DatabaseFactory.php';
+require_once 'src/Controllers/PokemonController.php';
 
-// Fetch data from database
-$sql = "SELECT id, name, type FROM pokemons";
-$result = $conn->query($sql);
+$conn = (new \src\Factories\DatabaseFactory)->connectDatabase();
 
-if ($result->num_rows > 0) {
-  // Output data of each row
-  while($row = $result->fetch_assoc()) {
-    echo "<h2>" . $row["name"]. "</h2><p>" . $row["type"] . "</p>";
-  }
-} else {
-  echo "0 results";
-}
+$pokemonController = new \src\Controllers\PokemonController();
+$pokemons = $pokemonController->index();
+
+require_once 'Resources/Views/pokemon/index.php';
 
 $conn->close();
-?>
+
